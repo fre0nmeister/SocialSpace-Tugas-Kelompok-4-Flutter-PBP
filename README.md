@@ -70,7 +70,7 @@ contoh, panduan pengembangan mobile, dan referensi API lengkap.
 
 1. Clone repository ini
 ```bash
-git clone <repository-url>
+git clone https://github.com/fre0nmeister/SocialSpace-Tugas-Kelompok-4-Flutter-PBP.git
 cd SocialSpace-Tugas-Kelompok-4-Flutter-PBP
 ```
 
