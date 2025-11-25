@@ -105,16 +105,17 @@ lib/
 
 ## 👥 Tim
 
-Tugas Kelompok 4 - Flutter PBP
-Rico Aldy Kusuma (24060123120041)
-Sophie Venecia May Manalu (24060123120043)
-Steven Jonathan Sihombing (24060123120044)
-Tsabita Syahida Khafid (24060123130071)
-Rasendriya Daffa Al Ghifary (24060123130077)
-Rangga Mulki Aji Muzaki (24060123140153)
-Rajwaa Muflihul Aufaa (24060123140189)
-Tegar Caesara Yanuansa (24060123140190)
-Ranggadya Aditama Ramadhani (24060123140196)
+**Tugas Kelompok 4 - Flutter PBP**
+
+- Rico Aldy Kusuma (24060123120041)
+- Sophie Venecia May Manalu (24060123120043)
+- Steven Jonathan Sihombing (24060123120044)
+- Tsabita Syahida Khafid (24060123130071)
+- Rasendriya Daffa Al Ghifary (24060123130077)
+- Rangga Mulki Aji Muzaki (24060123140153)
+- Rajwaa Muflihul Aufaa (24060123140189)
+- Tegar Caesara Yanuansa (24060123140190)
+- Ranggadya Aditama Ramadhani (24060123140196)
 
 ## 📄 Lisensi
 
