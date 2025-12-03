@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:socialmediaapp/firebase_options.dart'; // File otomatis dari CLI
+import 'package:socialmediaapp/firebase_options.dart'; 
 import 'screens/login_page.dart';
 
 void main() async {

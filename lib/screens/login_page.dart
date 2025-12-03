@@ -20,11 +20,10 @@ class _LoginPageState extends State<LoginPage> {
   void _login() async {
     if (_emailController.text.isEmpty || _passController.text.isEmpty) return;
     
-    // Tampilkan loading dialog sebentar (opsional, agar UX bagus)
     showDialog(context: context, barrierDismissible: false, builder: (c) => Center(child: CircularProgressIndicator()));
 
     var user = await _auth.signIn(_emailController.text, _passController.text);
-    Navigator.pop(context); // Tutup loading
+    Navigator.pop(context);  
 
     if (user != null) {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
@@ -57,7 +56,6 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: 60),
-              // --- BRANDING APLIKASI (Bukan Placeholder Lagi) ---
               Icon(Icons.camera_enhance_rounded, size: 80, color: _primaryColor),
               SizedBox(height: 16),
               Text(

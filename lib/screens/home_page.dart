@@ -18,7 +18,6 @@ class _HomePageState extends State<HomePage> {
   File? _selectedImage;
   bool _isLoading = false;
   
-  // Ambil user saat ini untuk ditampilkan di Header
   User? user = FirebaseAuth.instance.currentUser;
 
   final Color _primaryColor = const Color(0xFF1E2746);
@@ -47,7 +46,6 @@ class _HomePageState extends State<HomePage> {
         if (base64Image.length > 1000000) throw Exception("Ukuran gambar terlalu besar!");
       }
       
-      // Update user dulu jaga-jaga kalau null
       User? currentUser = FirebaseAuth.instance.currentUser;
       
       await FirebaseFirestore.instance.collection('posts').add({
@@ -77,17 +75,15 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // Ambil inisial nama untuk avatar (misal: "Daffa" -> "D")
     String initialName = (user?.displayName != null && user!.displayName!.isNotEmpty) 
         ? user!.displayName![0].toUpperCase() 
         : "U";
 
     return Scaffold(
-      backgroundColor: Colors.grey.shade50, // Background sedikit abu supaya Card menonjol
+      backgroundColor: Colors.grey.shade50,  
       body: SafeArea(
         child: Column(
           children: [
-            // --- BAGIAN 1: HEADER & INPUT ---
             Container(
               color: Colors.white,
               padding: EdgeInsets.all(16),
@@ -95,14 +91,12 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Row(
                     children: [
-                      // Avatar Asli (Inisial)
                       CircleAvatar(
                         backgroundColor: _primaryColor, 
                         radius: 20,
                         child: Text(initialName, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                       ),
                       SizedBox(width: 12),
-                      // Nama User Asli
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -175,10 +169,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             
-            // Separator
             Divider(height: 1, thickness: 1),
 
-            // --- BAGIAN 2: FEED LIST ---
             Expanded(
               child: StreamBuilder(
                 stream: FirebaseFirestore.instance.collection('posts').orderBy('timestamp', descending: true).snapshots(),
@@ -193,12 +185,11 @@ class _HomePageState extends State<HomePage> {
                       bool hasImage = data.containsKey('image_base64') && data['image_base64'] != null;
 
                       return Container(
-                        margin: EdgeInsets.symmetric(vertical: 8, horizontal: 0), // Full width card like FB/IG
+                        margin: EdgeInsets.symmetric(vertical: 8, horizontal: 0),  
                         color: Colors.white,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // Header Post
                             Padding(
                               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                               child: Row(
@@ -221,14 +212,12 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             
-                            // Caption
                             if (data['text'] != "") 
                               Padding(
                                 padding: EdgeInsets.only(left: 16, right: 16, bottom: 12),
                                 child: Text(data['text'], style: TextStyle(fontSize: 15, height: 1.4)),
                               ),
                             
-                            // Image (Hanya muncul jika ada)
                             if (hasImage)
                               GestureDetector(
                                 onTap: () => _showDetailBase64(data['image_base64']),
@@ -240,14 +229,13 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
 
-                            // Footer Action (Asli, bukan placeholder)
                             Padding(
                               padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround, // Space evenly
+                                mainAxisAlignment: MainAxisAlignment.spaceAround, 
                                 children: [
                                   TextButton.icon(
-                                    onPressed: () {}, // Tombol dummy utk visual
+                                    onPressed: () {},  
                                     icon: Icon(Icons.thumb_up_alt_outlined, color: Colors.grey.shade600, size: 20),
                                     label: Text("Suka", style: TextStyle(color: Colors.grey.shade600)),
                                   ),
